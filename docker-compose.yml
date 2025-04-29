@@ -15,13 +15,21 @@ services:
 
   web:
     build: .
-    command: pipenv run gunicorn healthcare_backend.wsgi:application --bind 0.0.0.0:8000
+    command: >
+        sh -c "pipenv run python manage.py wait_for_db &&
+        pipenv run python manage.py collectstatic --noinput &&
+        pipenv run python manage.py migrate --noinput &&
+        pipenv run gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     ports:
       - "8000:8000"
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgres://healthcare_user:healthcare_pass@db:5432/healthcare
+      POSTGRES_DB: healthcare
+      POSTGRES_USER: healthcare_user
+      POSTGRES_PASSWORD: healthcare_pass
+    expose:
+      - 8000:8000
 
 volumes:
   db_data:

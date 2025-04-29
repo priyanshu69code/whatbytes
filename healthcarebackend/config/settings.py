@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_4vh5x0f1*x8)p7$^vv#m&2$g_(=qgz-0d36p(d!0gvek@+(xw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1","localhost","0.0.0.0"]
 
 
 # Application definition
@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'user',
     'patient',
+    'core',
     'doctor',
     'mapping',
 ]
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 ] + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,25 +107,25 @@ SIMPLE_JWT = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 #postgres Database
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('POSTGRES_DB', 'planzodev1'),
-#         'USER': os.environ.get('POSTGRES_USER', 'planzo'),
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'planzo'),
-#         'HOST': 'db',
-#         'PORT': os.environ.get('SQL_PORT', '5432'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'planzodev1'),
+        'USER': os.environ.get('POSTGRES_USER', 'planzo'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'planzo'),
+        'HOST': 'db',
+        'PORT': os.environ.get('SQL_PORT', '5432'),
+    }
+}
 
 
 
@@ -164,8 +166,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# URL to access static files
+STATIC_URL = '/static/'
+
+# Add WhiteNoise storage (for caching with hashed filenames)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

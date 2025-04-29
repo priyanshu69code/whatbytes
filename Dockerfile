@@ -13,7 +13,7 @@ COPY Pipfile Pipfile.lock /app/
 RUN pip install --no-cache-dir pipenv && pipenv install --deploy --ignore-pipfile
 
 # Copy the Django app code
-COPY ./healthcarebackend /app/healthcarebackend
+COPY ./healthcarebackend /app
 
 # Run migrations and start the server
-CMD ["pipenv", "run", "python", "manage.py", "migrate", "--noinput", "&&", "pipenv", "run", "gunicorn", "healthcarebackend.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["pipenv", "run", "gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
