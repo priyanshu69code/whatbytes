@@ -43,6 +43,7 @@ LOCAL_APPS = [
     'patient',
     'core',
     'doctor',
+    'mapping',
 ]
 
 INSTALLED_APPS = [
