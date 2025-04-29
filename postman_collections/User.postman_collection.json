@@ -11,6 +11,26 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{$randomFullName}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{$randomEmail}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Haier@123",
+							"type": "text"
+						}
+					]
+				},
 				"url": "{{base_url}}register/"
 			},
 			"response": []
