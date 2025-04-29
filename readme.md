@@ -67,7 +67,7 @@ This backend provides RESTful APIs for:
 ### **Clone the Repository**
 
 ```bash
-git clone &lt;your-repo-url&gt;
+git clone https://github.com/priyanshu69code/whatbytes.git;
 cd whatbytes;
 ```
 
