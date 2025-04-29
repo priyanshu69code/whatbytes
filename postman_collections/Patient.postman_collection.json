@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "e609dc58-2886-4001-8f2e-0701c6ee1613",
+		"name": "Patient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34478326"
+	},
+	"item": [
+		{
+			"name": "Add Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Nikhil Raj",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Vaishali, Bihar",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7970660951",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{base_url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Soyam Srivatava",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "21",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{base_url}}1/"
+			},
+			"response": []
+		},
+		{
+			"name": "Patient List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patient Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{base_url}}1/"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1OTA1MDIxLCJpYXQiOjE3NDU5MDE0MjEsImp0aSI6ImVlOWIyOGQ3NzI5ZjQ5MmY5MjFjMjllNWM1Yzg4MDllIiwidXNlcl9pZCI6M30.uMoVlEbPp1LHtVUa-2PSbpL-DhSb3Rq-VJFkwybDT0E"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/patients/",
+			"type": "string"
+		}
+	]
+}

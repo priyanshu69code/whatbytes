@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "9485fa87-a37d-42be-b0d3-193751d87e57",
+		"name": "Mapping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34478326"
+	},
+	"item": [
+		{
+			"name": "Doctor-Patient Mapping",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "patient",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "doctor",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{base_url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Mapping Lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Mapping Detail",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Assigned Doctor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Mapping",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1OTA1MDIxLCJpYXQiOjE3NDU5MDE0MjEsImp0aSI6ImVlOWIyOGQ3NzI5ZjQ5MmY5MjFjMjllNWM1Yzg4MDllIiwidXNlcl9pZCI6M30.uMoVlEbPp1LHtVUa-2PSbpL-DhSb3Rq-VJFkwybDT0E"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/mappings/",
+			"type": "string"
+		}
+	]
+}
